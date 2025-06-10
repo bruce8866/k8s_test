@@ -5,7 +5,8 @@ services:
     ports:
       - '8080:80'
     volumes:
-      - ./src:/var/www/html:ro
+      - ./:/var/www/html
+      - ./src/.env:/var/www/html/.env
     env_file:
       - src/.env
     depends_on:

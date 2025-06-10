@@ -54,8 +54,4 @@ if (isset($_SESSION['access_token'])) {
 }
 
 
-### 啟動指令
-```bash
-docker-compose up --build -d
-```
-打開瀏覽器 http://localhost:8080 即可進行 OAuth 登入與點名。  
+  
