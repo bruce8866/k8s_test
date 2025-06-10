@@ -1,7 +1,7 @@
 <?php
 // src/config.php
-// 從 .env 讀取環境變數
 require_once __DIR__ . '/vendor/autoload.php';
+
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
@@ -9,6 +9,9 @@ $dotenv->load();
 define('GOOGLE_CLIENT_ID', $_ENV['GOOGLE_CLIENT_ID']);
 define('GOOGLE_CLIENT_SECRET', $_ENV['GOOGLE_CLIENT_SECRET']);
 define('GOOGLE_REDIRECT_URI', $_ENV['GOOGLE_REDIRECT_URI']);
+
+// Demo 模式開關
+define('DEMO_MODE', ($_ENV['DEMO_MODE'] ?? 'true') === 'true');
 
 // 資料庫連線
 define('DB_HOST', $_ENV['DB_HOST']);
