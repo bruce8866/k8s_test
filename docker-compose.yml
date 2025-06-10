@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  php-app:
+    build: .
+    ports:
+      - '8080:80'
+    volumes:
+      - ./src:/var/www/html:ro
+    env_file:
+      - src/.env
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example_root_pass
+      MYSQL_DATABASE: attendance_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user_pass
+    volumes:
+      - db_data:/var/lib/mysql
+volumes:
+  db_data:
